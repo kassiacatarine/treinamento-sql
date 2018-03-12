@@ -13,18 +13,18 @@ SELECT
   SUM(CASE datepart(month, login_date) WHEN 10 THEN 1 ELSE 0 END) AS 'October',
   SUM(CASE datepart(month, login_date) WHEN 11 THEN 1 ELSE 0 END) AS 'November',
   SUM(CASE datepart(month, login_date) WHEN 12 THEN 1 ELSE 0 END) AS 'December',
-  SUM(CASE datepart(year, login_date) WHEN 2012 THEN 1 ELSE 0 END) AS 'TOTAL'
+  SUM(CASE datepart(year, login_date) WHEN 2016 THEN 1 ELSE 0 END) AS 'TOTAL'
 FROM
     logins
 WHERE
    login_date BETWEEN '2016/01/01' AND '2016/12/31';
 
 
-SELECT (count(*)/30) Media
+SELECT ROUND(count(*)/30, 0) Media
 FROM 
     logins 
 WHERE 
-    login_date BETWEEN '2016/11/01' AND '2016/11/30';
+    login_date BETWEEN '2016/10/01' AND '2016/10/30';
 
 
 SELECT top 10 * 
